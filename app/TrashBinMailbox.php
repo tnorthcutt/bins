@@ -12,10 +12,10 @@ class TrashBinMailbox
     public function __invoke(InboundEmail $email)
     {
         if (strpos($email->text(), '*Trash*') !== false) {
-            $this->status = 'trash';
+            $this->status = 'bin-status trash';
         }
         if (strpos($email->text(), '*Recycling*') !== false) {
-            $this->status = 'both';
+            $this->status = 'bin-status both';
         }
         Storage::disk('local')->put('status.txt', $this->status);
     }
