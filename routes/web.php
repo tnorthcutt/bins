@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Storage;
+
 Route::get('/', function () {
-    return view('welcome');
+    return Storage::disk('local')->get('status.txt');
 });
