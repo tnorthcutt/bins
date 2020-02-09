@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\TrashBinMailbox;
 use BeyondCode\Mailbox\Facades\Mailbox;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
