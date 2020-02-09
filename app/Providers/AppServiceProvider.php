@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\TrashBinMailbox;
+use BeyondCode\Mailbox\Facades\Mailbox;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+        Mailbox::catchAll(TrashBinMailbox::class);
     }
 }
