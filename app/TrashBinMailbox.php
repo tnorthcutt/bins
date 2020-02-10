@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Log;
 use BeyondCode\Mailbox\InboundEmail;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +18,7 @@ class TrashBinMailbox
         if (strpos($email->text(), '*Recycling*') !== false) {
             $this->status = 'bin-status both';
         }
+        Log::info('Status: ' . $this->status);
         Storage::disk('local')->put('status.txt', $this->status);
     }
 }
