@@ -12,7 +12,7 @@ class TrashBinMailbox
 
     public function __invoke(InboundEmail $email)
     {
-        if (strpos($email->html(), '<strong>Trash*') !== false) {
+        if (strpos($email->html(), '<strong>Trash') !== false) {
             $this->status = 'bin-status trash';
         }
         if (strpos($email->html(), '<strong>Recycling') !== false) {
